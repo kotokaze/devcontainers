@@ -14,6 +14,7 @@ jobs:
         with:
           filters: |
             ros2: ./**/ros2/**
+            texlive: ./**/texlive/**
 
   test:
     needs: [detect-changes]
