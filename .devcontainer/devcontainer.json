@@ -1,0 +1,31 @@
+// More info: https://containers.dev/implementors/json_reference/
+{
+	"name": "devcontainers",
+	"image": "mcr.microsoft.com/devcontainers/javascript-node:0-18",
+
+	"workspaceFolder": "/ws",
+	"workspaceMount": "source=${localWorkspaceFolder},target=/ws,type=bind,consistency=cached",
+	"runArgs": ["--name", "${localWorkspaceFolderBasename}"],
+
+	"features": {
+		"ghcr.io/devcontainers/features/docker-outside-of-docker:1": {
+			"moby": "false"
+		}
+	},
+
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"mads-hartmann.bash-ide-vscode",
+				"GitHub.copilot",
+				"GitHub.copilot-labs",
+				"GitHub.vscode-pull-request-github",
+				"VisualStudioExptTeam.vscodeintellicode",
+				"VisualStudioExptTeam.intellicode-api-usage-examples"
+			]
+		}
+	},
+
+	"onCreateCommand": "git config --global --add safe.directory ${containerWorkspaceFolder}",
+	"postCreateCommand": "npm install -g @devcontainers/cli"
+}

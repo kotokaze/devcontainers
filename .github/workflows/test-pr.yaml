@@ -1,0 +1,32 @@
+name: CI - Test the templates
+on:
+  pull_request:
+
+jobs:
+  detect-changes:
+    runs-on: ubuntu-latest
+    outputs:
+      templates: ${{ steps.filter.outputs.changes }}
+    steps:
+      - name: Get changed files 🔍
+        uses: dorny/paths-filter@v2
+        id: filter
+        with:
+          filters: |
+
+  test:
+    needs: [detect-changes]
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    strategy:
+      matrix:
+        templates: ${{ fromJSON(needs.detect-changes.outputs.templates) }}
+    steps:
+      - name: Checkout 🎯
+        uses: actions/checkout@v3
+
+      - name: Smoke test for '${{ matrix.templates }}' 🚧
+        id: smoke_test
+        uses: ./.github/actions/smoke-test
+        with:
+          template: "${{ matrix.templates }}"
