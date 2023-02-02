@@ -5,7 +5,7 @@
     "context": ".",
     "dockerfile": "Dockerfile",
     "args": {
-      "VARIANT": "${template:imageVariant}",
+      "VARIANT": "${templateOption:imageVariant}",
       "SCHEME": "${templateOption:scheme}",
       "REPO": "${templateOption:repo}",
       "DOCFILES": "${templateOption:docfiles}",
