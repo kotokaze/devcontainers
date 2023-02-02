@@ -13,6 +13,7 @@ jobs:
         id: filter
         with:
           filters: |
+            ros2: ./**/ros2/**
 
   test:
     needs: [detect-changes]

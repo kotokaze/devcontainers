@@ -1,0 +1,30 @@
+{
+  "id": "ros2",
+  "version": "1.0.0",
+  "name": "ROS2 Workspace",
+  "description": "ROS2 Workspace with Web VNC",
+  "documentationURL": "https://github.com/kotokaze/devcontainers/tree/master/src/ros2",
+  "licenseURL": "https://github.com/kotokaze/devcontainers/blob/master/LICENSE",
+  "options": {
+    "distro": {
+      "type": "string",
+      "description": "ROS2 Distributions (Check the original image for more details https://hub.docker.com/r/tiryoh/ros2-desktop-vnc)",
+      "proposals": [
+        "foxy",
+        "humble",
+        "rolling"
+      ],
+      "default": "foxy"
+    },
+    "useZsh": {
+      "type": "bool",
+      "description": "Install and setup Zsh as default login shell",
+      "default": false
+    }
+  },
+  "platforms": [
+    "linux/amd64",
+    "linux/arm64"
+  ],
+  "publisher": "kotokaze"
+}
