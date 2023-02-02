@@ -1,0 +1,62 @@
+{
+  "id": "texlive",
+  "version": "1.0.0",
+  "name": "TeX Live Workspace",
+  "description": "TeXLive Workspace",
+  "documentationURL": "https://github.com/kotokaze/devcontainers/tree/master/src/texlive",
+  "licenseURL": "https://github.com/kotokaze/devcontainers/blob/master/LICENSE",
+  "options": {
+    "imageVariant": {
+      "type": "string",
+      "proposals": [
+        "bullseye"
+      ],
+      "default": "bullseye",
+      "description": "Image Variant"
+    },
+    "scheme": {
+      "type": "string",
+      "proposals": [
+        "basic",
+        "full",
+        "medium",
+        "minimal",
+        "small"
+      ],
+      "default": "full",
+      "description": "Tex Live Scheme"
+    },
+    "repo": {
+      "type": "string",
+      "proposed": [
+        "httpt://mirror.ctan.org/systems/texlive/tlnet/",
+        "rsync://rsync.dante.ctan.org/CTAN/systems/texlive/tlnet/"
+      ],
+      "default": "https://mirror.ctan.org/systems/texlive/tlnet",
+      "description": "TeX Live Repository"
+    },
+    "docfiles": {
+      "type": "string",
+      "enum": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "description": "Install Documentation Files"
+    },
+    "srcfiles": {
+      "type": "string",
+      "enum": [
+        "0",
+        "1"
+      ],
+      "default": "0",
+      "description": "Install Source Files"
+    }
+  },
+  "platforms": [
+    "linux/amd64",
+    "linux/arm64"
+  ],
+  "publisher": "kotokaze"
+}

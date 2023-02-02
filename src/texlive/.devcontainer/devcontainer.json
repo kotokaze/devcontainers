@@ -1,0 +1,62 @@
+// For format details, see https://aka.ms/devcontainer.json.
+{
+  "name": "TexLive WS",
+  "build": {
+    "context": ".",
+    "dockerfile": "Dockerfile",
+    "args": {
+      "VARIANT": "${template:imageVariant}",
+      "SCHEME": "${templateOption:scheme}",
+      "REPO": "${templateOption:repo}",
+      "DOCFILES": "${templateOption:docfiles}",
+      "SRCFILES": "${templateOption:srcfiles}"
+    }
+  },
+  "runArgs": [
+    "--name",
+    "${localWorkspaceFolderBasename}"
+  ],
+
+  // Workspace location
+  "workspaceFolder": "/ws",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/ws,type=bind,consistency=cached",
+
+  // Features to add to the dev container. More info: https://containers.dev/features.
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils": {
+      "configureZshAsDefaultShell": true,
+      "upgradePackages": true
+    },
+    "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {
+      "moby": false
+    },
+    "ghcr.io/devcontainers/features/git-lfs:1": {
+      "version": "latest"
+    },
+    "ghcr.io/devcontainers/features/github-cli:1": {
+      "installDirectlyFromGitHubRelease": true
+    }
+  },
+
+  // Configure tool-specific properties.
+  "customizations": {
+    // Configure properties specific to VS Code.
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "zsh"
+      },
+
+      // Add the IDs of extensions you want installed when the container is created.
+      "extensions": [
+        "hediet.vscode-drawio",
+        "James-Yu.latex-workshop",
+        "mhutchie.git-graph",
+        "VisualStudioExptTeam.vscodeintellicode",
+        "VisualStudioExptTeam.intellicode-api-usage-examples"
+      ]
+    }
+  },
+
+  // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+  "remoteUser": "vscode"
+}
