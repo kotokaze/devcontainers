@@ -8,6 +8,8 @@ jobs:
   deploy:
     if: ${{ github.ref == 'refs/heads/master' }}
     runs-on: ubuntu-latest
+    env:
+      BUILDKIT_PROGRESS: "plain"
     permissions:
       contents: write
       packages: write
