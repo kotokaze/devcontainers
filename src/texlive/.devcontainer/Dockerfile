@@ -1,5 +1,8 @@
 ### base stage
 ARG VARIANT=bullseye
+ARG SCHEME=full
+ARG DOCFILES=0
+ARG SRCFILES=0
 FROM buildpack-deps:${VARIANT}-curl as base
 
 ENV \
@@ -28,9 +31,6 @@ ENV \
   TEXLIVE_INSTALL_NO_DISKCHECK=1
 
 # Create profile
-ARG SCHEME=full
-ARG DOCFILES=0
-ARG SRCFILES=0
 COPY texlive.installation.profile .
 RUN sed -i \
   -re "s|(selected_scheme\ scheme-)full|\1"${SCHEME}"|" \
@@ -57,6 +57,10 @@ RUN case "${REPO}" in \
 ### final stage
 FROM base
 WORKDIR /tmp
+
+ENV \
+  DOCFILES=${DOCFILES} \
+  SRCFILES=${SRCFILES}
 
 # Install
 COPY --from=builder /opt/texlive /opt/texlive

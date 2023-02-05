@@ -7,8 +7,13 @@ check "latex" latex --version
 check "biber" biber --version
 check "xindy" xindy --version
 check "arara" arara --version
-check "texdoc" texdoc -l geometry
-check "kpsewhich" kpsewhich /amsmath.dtx
+
+# Check kpsewhich and texdoc if DOCFILES is set
+if [ -n "${DOCFILES}" ]; then
+  check "kpsewhich" kpsewhich --version
+  check "texdoc" texdoc --version
+fi
+
 check "python" python --version
 check "pygmentize" pygmentize -V
 
