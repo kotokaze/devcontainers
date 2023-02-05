@@ -29,7 +29,7 @@
     "repo": {
       "type": "string",
       "proposed": [
-        "httpt://mirror.ctan.org/systems/texlive/tlnet/",
+        "https://mirror.ctan.org/systems/texlive/tlnet/",
         "rsync://rsync.dante.ctan.org/CTAN/systems/texlive/tlnet/"
       ],
       "default": "rsync://rsync.dante.ctan.org/CTAN/systems/texlive/tlnet/",
