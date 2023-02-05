@@ -32,7 +32,7 @@
         "httpt://mirror.ctan.org/systems/texlive/tlnet/",
         "rsync://rsync.dante.ctan.org/CTAN/systems/texlive/tlnet/"
       ],
-      "default": "https://mirror.ctan.org/systems/texlive/tlnet",
+      "default": "rsync://rsync.dante.ctan.org/CTAN/systems/texlive/tlnet/",
       "description": "TeX Live Repository"
     },
     "docfiles": {
