@@ -14,11 +14,13 @@ jobs:
         with:
           filters: |
             ros2: ./**/ros2/**
+            texlive: ./**/texlive/**
 
   test:
     needs: [detect-changes]
     runs-on: ubuntu-latest
     env:
+      BUILDKIT_INLINE_CACHE: "1"
       BUILDKIT_PROGRESS: "plain"
     continue-on-error: true
     strategy:
