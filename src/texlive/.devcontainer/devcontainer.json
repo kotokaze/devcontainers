@@ -1,17 +1,7 @@
 // For format details, see https://aka.ms/devcontainer.json.
 {
   "name": "TexLive WS",
-  "build": {
-    "context": ".",
-    "dockerfile": "Dockerfile",
-    "args": {
-      "VARIANT": "${templateOption:imageVariant}",
-      "SCHEME": "${templateOption:scheme}",
-      "REPO": "${templateOption:repo}",
-      "DOCFILES": "${templateOption:docfiles}",
-      "SRCFILES": "${templateOption:srcfiles}"
-    }
-  },
+  "image": "${templateOption:registry}/kotokaze/texlive:latest",
   "runArgs": [
     "--name",
     "${localWorkspaceFolderBasename}"

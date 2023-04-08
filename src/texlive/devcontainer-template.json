@@ -6,52 +6,14 @@
   "documentationURL": "https://github.com/kotokaze/devcontainers/tree/master/src/texlive",
   "licenseURL": "https://github.com/kotokaze/devcontainers/blob/master/LICENSE",
   "options": {
-    "imageVariant": {
-      "type": "string",
-      "proposals": [
-        "bullseye"
-      ],
-      "default": "bullseye",
-      "description": "Image Variant"
-    },
-    "scheme": {
-      "type": "string",
-      "proposals": [
-        "basic",
-        "full",
-        "medium",
-        "minimal",
-        "small"
-      ],
-      "default": "full",
-      "description": "Tex Live Scheme"
-    },
-    "repo": {
-      "type": "string",
-      "proposed": [
-        "https://mirror.ctan.org/systems/texlive/tlnet/",
-        "rsync://rsync.dante.ctan.org/CTAN/systems/texlive/tlnet/"
-      ],
-      "default": "rsync://rsync.dante.ctan.org/CTAN/systems/texlive/tlnet/",
-      "description": "TeX Live Repository"
-    },
-    "docfiles": {
+    "registry": {
       "type": "string",
       "enum": [
-        "0",
-        "1"
+        "ghcr.io",
+        "docker.io"
       ],
-      "default": "0",
-      "description": "Install Documentation Files"
-    },
-    "srcfiles": {
-      "type": "string",
-      "enum": [
-        "0",
-        "1"
-      ],
-      "default": "0",
-      "description": "Install Source Files"
+      "default": "ghcr.io",
+      "description": "Image Registry"
     }
   },
   "platforms": [
