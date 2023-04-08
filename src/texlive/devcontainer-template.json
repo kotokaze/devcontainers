@@ -1,0 +1,24 @@
+{
+  "id": "texlive",
+  "version": "1.0.0",
+  "name": "TeX Live Workspace",
+  "description": "TeXLive Workspace",
+  "documentationURL": "https://github.com/kotokaze/devcontainers/tree/master/src/texlive",
+  "licenseURL": "https://github.com/kotokaze/devcontainers/blob/master/LICENSE",
+  "options": {
+    "registry": {
+      "type": "string",
+      "enum": [
+        "ghcr.io",
+        "docker.io"
+      ],
+      "default": "ghcr.io",
+      "description": "Image Registry"
+    }
+  },
+  "platforms": [
+    "linux/amd64",
+    "linux/arm64"
+  ],
+  "publisher": "kotokaze"
+}
